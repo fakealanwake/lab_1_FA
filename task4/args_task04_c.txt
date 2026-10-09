@@ -1,0 +1,1 @@
+-s task4/sample.txt

@@ -1,0 +1,680 @@
+[
+  {
+    "id": "task1-h",
+    "exe": "task1/task1.exe",
+    "args": "10 -h",
+    "exit": 0,
+    "stdout": "10 20 30 40 50 60 70 80 90 100\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-h-negative-slash",
+    "exe": "task1/task1.exe",
+    "args": "-10 /h",
+    "exit": 0,
+    "stdout": "10 20 30 40 50 60 70 80 90 100\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-h-edge",
+    "exe": "task1/task1.exe",
+    "args": "100 -h",
+    "exit": 0,
+    "stdout": "100\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-h-none",
+    "exe": "task1/task1.exe",
+    "args": "101 -h",
+    "exit": 0,
+    "stdout": "Кратных нет\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-h-zero",
+    "exe": "task1/task1.exe",
+    "args": "0 -h",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "для этого флага число не подходит\n"
+  },
+  {
+    "id": "task1-p-prime",
+    "exe": "task1/task1.exe",
+    "args": "7 -p",
+    "exit": 0,
+    "stdout": "Простое\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-p-composite",
+    "exe": "task1/task1.exe",
+    "args": "4 -p",
+    "exit": 0,
+    "stdout": "Составное\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-p-composite-slash",
+    "exe": "task1/task1.exe",
+    "args": "9 /p",
+    "exit": 0,
+    "stdout": "Составное\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-p-neither",
+    "exe": "task1/task1.exe",
+    "args": "1 -p",
+    "exit": 0,
+    "stdout": "Ни простое, ни составное\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-s",
+    "exe": "task1/task1.exe",
+    "args": "255 -s",
+    "exit": 0,
+    "stdout": "F F\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-s-negative-slash",
+    "exe": "task1/task1.exe",
+    "args": "-255 /s",
+    "exit": 0,
+    "stdout": "- F F\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-s-zero",
+    "exe": "task1/task1.exe",
+    "args": "0 -s",
+    "exit": 0,
+    "stdout": "0\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-e",
+    "exe": "task1/task1.exe",
+    "args": "2 -e",
+    "exit": 0,
+    "stdout": "1: 1 1\n2: 2 4\n3: 3 9\n4: 4 16\n5: 5 25\n6: 6 36\n7: 7 49\n8: 8 64\n9: 9 81\n10: 10 100\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-e-one-slash",
+    "exe": "task1/task1.exe",
+    "args": "1 /e",
+    "exit": 0,
+    "stdout": "1: 1\n2: 2\n3: 3\n4: 4\n5: 5\n6: 6\n7: 7\n8: 8\n9: 9\n10: 10\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-e-zero",
+    "exe": "task1/task1.exe",
+    "args": "0 -e",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "для этого флага число не подходит\n"
+  },
+  {
+    "id": "task1-e-too-big",
+    "exe": "task1/task1.exe",
+    "args": "11 -e",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "для этого флага число не подходит\n"
+  },
+  {
+    "id": "task1-a",
+    "exe": "task1/task1.exe",
+    "args": "10 -a",
+    "exit": 0,
+    "stdout": "55\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-a-slash",
+    "exe": "task1/task1.exe",
+    "args": "1 /a",
+    "exit": 0,
+    "stdout": "1\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-f",
+    "exe": "task1/task1.exe",
+    "args": "5 -f",
+    "exit": 0,
+    "stdout": "120\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-f-zero-slash",
+    "exe": "task1/task1.exe",
+    "args": "0 /f",
+    "exit": 0,
+    "stdout": "1\n",
+    "stderr": ""
+  },
+  {
+    "id": "task1-f-overflow",
+    "exe": "task1/task1.exe",
+    "args": "21 -f",
+    "exit": 2,
+    "stdout": "",
+    "stderr": "число не помещается\n"
+  },
+  {
+    "id": "task1-f-negative",
+    "exe": "task1/task1.exe",
+    "args": "-1 -f",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "для этого флага число не подходит\n"
+  },
+  {
+    "id": "task1-usage",
+    "exe": "task1/task1.exe",
+    "args": "",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "нужно: число и флаг -h -p -s -e -a -f\n"
+  },
+  {
+    "id": "task2-eps",
+    "exe": "task2/task2.exe",
+    "args": "0.001",
+    "exit": 0,
+    "stderr": "",
+    "contain": "(не сошлось)",
+    "containCount": 1,
+    "floats": [
+      {"v": 2.718281828, "t": 0.002},
+      {"v": 2.718281828, "t": 0.002},
+      {"v": 2.718281828, "t": 0.002},
+      {"v": 3.141592654, "t": 0.002},
+      {"v": 3.141592654, "t": 0.002},
+      {"v": 3.141592654, "t": 0.002},
+      {"v": 0.693147181, "t": 0.002},
+      {"v": 0.693147181, "t": 0.002},
+      {"v": 0.693147181, "t": 0.002},
+      {"v": 1.414213562, "t": 0.002},
+      {"v": 1.414213562, "t": 0.002},
+      {"v": 1.414213562, "t": 0.002},
+      {"v": 0.577215665, "t": 0.002},
+      {"v": 0.577215665, "t": 0.002},
+      {"v": 0.577215665, "t": 0.002}
+    ]
+  },
+  {
+    "id": "task2-usage",
+    "exe": "task2/task2.exe",
+    "args": "",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "нужно: положительный эпсилон\n"
+  },
+  {
+    "id": "task2-negative",
+    "exe": "task2/task2.exe",
+    "args": "-0.001",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "нужно: положительный эпсилон\n"
+  },
+  {
+    "id": "task3-q-two",
+    "exe": "task3/task3.exe",
+    "args": "-q 0.001 1 -5 6",
+    "exit": 0,
+    "stderr": "",
+    "stdout": "уравнение: 1 x^2 + -5 x + 6 = 0\n  x1 = 2, x2 = 3\nуравнение: 1 x^2 + 6 x + -5 = 0\n  x1 = -6.74166, x2 = 0.741657\nуравнение: -5 x^2 + 1 x + 6 = 0\n  x1 = 1.2, x2 = -1\nуравнение: -5 x^2 + 6 x + 1 = 0\n  x1 = 1.34833, x2 = -0.148331\nуравнение: 6 x^2 + 1 x + -5 = 0\n  x1 = -1, x2 = 0.833333\nуравнение: 6 x^2 + -5 x + 1 = 0\n  x1 = 0.333333, x2 = 0.5\n"
+  },
+  {
+    "id": "task3-q-one-slash",
+    "exe": "task3/task3.exe",
+    "args": "/q 0.001 1 -4 4",
+    "exit": 0,
+    "stderr": "",
+    "stdout": "уравнение: 1 x^2 + -4 x + 4 = 0\n  x = 2\nуравнение: 1 x^2 + 4 x + -4 = 0\n  x1 = -4.82843, x2 = 0.828427\nуравнение: -4 x^2 + 1 x + 4 = 0\n  x1 = 1.13278, x2 = -0.882782\nуравнение: -4 x^2 + 4 x + 1 = 0\n  x1 = 1.20711, x2 = -0.207107\nуравнение: 4 x^2 + 1 x + -4 = 0\n  x1 = -1.13278, x2 = 0.882782\nуравнение: 4 x^2 + -4 x + 1 = 0\n  x = 0.5\n"
+  },
+  {
+    "id": "task3-q-infinite",
+    "exe": "task3/task3.exe",
+    "args": "-q 0.001 0 0 0",
+    "exit": 0,
+    "stderr": "",
+    "stdout": "уравнение: 0 x^2 + 0 x + 0 = 0\n  бесконечно много корней\n"
+  },
+  {
+    "id": "task3-q-unique",
+    "exe": "task3/task3.exe",
+    "args": "-q 0.001 1 1 2",
+    "exit": 0,
+    "stderr": "",
+    "stdout": "уравнение: 1 x^2 + 1 x + 2 = 0\n  корней нет\nуравнение: 1 x^2 + 2 x + 1 = 0\n  x = -1\nуравнение: 2 x^2 + 1 x + 1 = 0\n  корней нет\n"
+  },
+  {
+    "id": "task3-m-yes",
+    "exe": "task3/task3.exe",
+    "args": "-m 10 5",
+    "exit": 0,
+    "stdout": "10 кратно 5\n",
+    "stderr": ""
+  },
+  {
+    "id": "task3-m-no-slash",
+    "exe": "task3/task3.exe",
+    "args": "/m 10 3",
+    "exit": 0,
+    "stdout": "10 не кратно 3\n",
+    "stderr": ""
+  },
+  {
+    "id": "task3-m-negative",
+    "exe": "task3/task3.exe",
+    "args": "-m -10 5",
+    "exit": 0,
+    "stdout": "-10 кратно 5\n",
+    "stderr": ""
+  },
+  {
+    "id": "task3-m-zero",
+    "exe": "task3/task3.exe",
+    "args": "-m 0 5",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "числа должны быть ненулевыми\n"
+  },
+  {
+    "id": "task3-t-yes",
+    "exe": "task3/task3.exe",
+    "args": "-t 0.001 3 4 5",
+    "exit": 0,
+    "stdout": "прямоугольный\n",
+    "stderr": ""
+  },
+  {
+    "id": "task3-t-yes-slash",
+    "exe": "task3/task3.exe",
+    "args": "/t 0.001 5 12 13",
+    "exit": 0,
+    "stdout": "прямоугольный\n",
+    "stderr": ""
+  },
+  {
+    "id": "task3-t-no",
+    "exe": "task3/task3.exe",
+    "args": "-t 0.001 2 3 4",
+    "exit": 0,
+    "stdout": "не прямоугольный\n",
+    "stderr": ""
+  },
+  {
+    "id": "task3-bad-flag",
+    "exe": "task3/task3.exe",
+    "args": "-x",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "флаг должен быть q, m или t\n"
+  },
+  {
+    "id": "task4-d",
+    "exe": "task4/task4.exe",
+    "args": "-d task4/sample.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [{"path": "task4/sample.txt", "text": "ab12cd\nHi!\n"}],
+    "files": [{"path": "task4/out_sample.txt", "text": "abcd\nHi!\n"}],
+    "cleanup": ["task4/out_sample.txt"]
+  },
+  {
+    "id": "task4-i-slash",
+    "exe": "task4/task4.exe",
+    "args": "/i task4/sample.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [{"path": "task4/sample.txt", "text": "ab12cd\nHi!\n"}],
+    "files": [{"path": "task4/out_sample.txt", "text": "4\n2\n"}],
+    "cleanup": ["task4/out_sample.txt"]
+  },
+  {
+    "id": "task4-s",
+    "exe": "task4/task4.exe",
+    "args": "-s task4/sample.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [{"path": "task4/sample.txt", "text": "ab12cd\nHi!\n"}],
+    "files": [{"path": "task4/out_sample.txt", "text": "0\n1\n"}],
+    "cleanup": ["task4/out_sample.txt"]
+  },
+  {
+    "id": "task4-a-slash",
+    "exe": "task4/task4.exe",
+    "args": "/a task4/sample.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [{"path": "task4/sample.txt", "text": "ab12cd\nHi!\n"}],
+    "files": [{"path": "task4/out_sample.txt", "text": "6162126364A486921A"}],
+    "cleanup": ["task4/out_sample.txt"]
+  },
+  {
+    "id": "task4-nd",
+    "exe": "task4/task4.exe",
+    "args": "-nd task4/sample.txt task4/nd.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [{"path": "task4/sample.txt", "text": "ab12cd\nHi!\n"}],
+    "files": [{"path": "task4/nd.txt", "text": "abcd\nHi!\n"}],
+    "cleanup": ["task4/nd.txt"]
+  },
+  {
+    "id": "task4-ni-slash",
+    "exe": "task4/task4.exe",
+    "args": "/ni task4/sample.txt task4/ni.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [{"path": "task4/sample.txt", "text": "ab12cd\nHi!\n"}],
+    "files": [{"path": "task4/ni.txt", "text": "4\n2\n"}],
+    "cleanup": ["task4/ni.txt"]
+  },
+  {
+    "id": "task4-ns",
+    "exe": "task4/task4.exe",
+    "args": "-ns task4/sample.txt task4/ns.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [{"path": "task4/sample.txt", "text": "ab12cd\nHi!\n"}],
+    "files": [{"path": "task4/ns.txt", "text": "0\n1\n"}],
+    "cleanup": ["task4/ns.txt"]
+  },
+  {
+    "id": "task4-na-slash",
+    "exe": "task4/task4.exe",
+    "args": "/na task4/sample.txt task4/na.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [{"path": "task4/sample.txt", "text": "ab12cd\nHi!\n"}],
+    "files": [{"path": "task4/na.txt", "text": "6162126364A486921A"}],
+    "cleanup": ["task4/na.txt"]
+  },
+  {
+    "id": "task4-empty",
+    "exe": "task4/task4.exe",
+    "args": "-d task4/empty.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [{"path": "task4/empty.txt", "text": ""}],
+    "files": [{"path": "task4/out_empty.txt", "text": ""}],
+    "cleanup": ["task4/out_empty.txt"]
+  },
+  {
+    "id": "task4-no-newline",
+    "exe": "task4/task4.exe",
+    "args": "-i task4/nonew.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [{"path": "task4/nonew.txt", "text": "Abc"}],
+    "files": [{"path": "task4/out_nonew.txt", "text": "3\n"}],
+    "cleanup": ["task4/out_nonew.txt"]
+  },
+  {
+    "id": "task4-crlf",
+    "exe": "task4/task4.exe",
+    "args": "-s task4/crlf.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [{"path": "task4/crlf.txt", "text": "Ab\r\n1!\r\n"}],
+    "files": [{"path": "task4/out_crlf.txt", "text": "0\n1\n"}],
+    "cleanup": ["task4/out_crlf.txt"]
+  },
+  {
+    "id": "task4-directory",
+    "exe": "task4/task4.exe",
+    "args": "-d task4/nested/a.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [{"path": "task4/nested/a.txt", "text": "12x"}],
+    "files": [{"path": "task4/nested/out_a.txt", "text": "x"}],
+    "cleanup": ["task4/nested/out_a.txt"]
+  },
+  {
+    "id": "task4-missing",
+    "exe": "task4/task4.exe",
+    "args": "-d task4/no-such.txt",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "не открылся входной файл\n"
+  },
+  {
+    "id": "task5-series",
+    "exe": "task5/task5.exe",
+    "args": "0.0001 0.5",
+    "exit": 0,
+    "stderr": "",
+    "floats": [
+      {"v": 1.6487196181, "t": 0.000001},
+      {"v": 0.8775824653, "t": 0.000001},
+      {"v": 2.9004743233, "t": 0.000001},
+      {"v": -0.1055624485, "t": 0.000001},
+      {"v": 0.8224545491, "t": 0.000001},
+      {"v": 0.8556490731, "t": 0.000001},
+      {"v": 0.9999864810, "t": 0.000001},
+      {"v": 0.7834124054, "t": 0.000001}
+    ]
+  },
+  {
+    "id": "task5-x-outside",
+    "exe": "task5/task5.exe",
+    "args": "0.0001 1.5",
+    "exit": 0,
+    "stderr": "",
+    "contain": "неверные данные",
+    "containCount": 2,
+    "floats": [
+      {"v": 4.4816865976, "t": 0.000001},
+      {"v": 0.0707369341, "t": 0.000001},
+      {"v": 0.8224545491, "t": 0.000001},
+      {"v": 0.8556490731, "t": 0.000001},
+      {"v": 0.9999864810, "t": 0.000001},
+      {"v": 0.7834124054, "t": 0.000001}
+    ]
+  },
+  {
+    "id": "task5-usage",
+    "exe": "task5/task5.exe",
+    "args": "",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "нужно: эпсилон и x\n"
+  },
+  {
+    "id": "task6-demo",
+    "exe": "task6/task6.exe",
+    "args": "",
+    "exit": 0,
+    "stderr": "",
+    "stdout": "квадрат: выпуклый\nпятиугольник: не выпуклый\n2x^2 + 3x + 4 при x = 2: 18\nчисла Капрекара в основании 10: 0 1 45 297\nсреднее геометрическое 4 и 9: 6\n2^10 = 1024\n2^(-3) = 0.125\nкорень x^2 = 2 на [1, 2]: 1.4142135624\nкорень e^x = 2 на [0, 1]: 0.6931471806\nкорень cos x = 0 на [0, 2]: 1.5707963258\n"
+  },
+  {
+    "id": "task7-r",
+    "exe": "task7/task7.exe",
+    "args": "-r task7/left.txt task7/right.txt task7/merge.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [
+      {"path": "task7/left.txt", "text": "a b c"},
+      {"path": "task7/right.txt", "text": "x y"}
+    ],
+    "files": [{"path": "task7/merge.txt", "text": "a x b y c"}],
+    "cleanup": ["task7/merge.txt"]
+  },
+  {
+    "id": "task7-r-rest-slash",
+    "exe": "task7/task7.exe",
+    "args": "/r task7/left.txt task7/right_long.txt task7/merge_long.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [
+      {"path": "task7/left.txt", "text": "a b c"},
+      {"path": "task7/right_long.txt", "text": "x y z w"}
+    ],
+    "files": [{"path": "task7/merge_long.txt", "text": "a x b y c z w"}],
+    "cleanup": ["task7/merge_long.txt"]
+  },
+  {
+    "id": "task7-a",
+    "exe": "task7/task7.exe",
+    "args": "-a task7/tokens.txt task7/tokens_out.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [{"path": "task7/tokens.txt", "text": "A B C D YY F G H I Hello"}],
+    "files": [{"path": "task7/tokens_out.txt", "text": "A b C d 131131 f G h I 12201211123012301233"}],
+    "cleanup": ["task7/tokens_out.txt"]
+  },
+  {
+    "id": "task7-a-one-slash",
+    "exe": "task7/task7.exe",
+    "args": "/a task7/one.txt task7/one_out.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [{"path": "task7/one.txt", "text": "Hello"}],
+    "files": [{"path": "task7/one_out.txt", "text": "Hello"}],
+    "cleanup": ["task7/one_out.txt"]
+  },
+  {
+    "id": "task7-usage",
+    "exe": "task7/task7.exe",
+    "args": "",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "нужно: -r файл1 файл2 выход | -a вход выход\n"
+  },
+  {
+    "id": "task7-r-argc",
+    "exe": "task7/task7.exe",
+    "args": "-r task7/left.txt",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "для -r нужны два входных файла и выходной\n"
+  },
+  {
+    "id": "task8-numbers",
+    "exe": "task8/task8.exe",
+    "args": "task8/numbers.txt task8/numbers_out.txt",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "prepare": [{"path": "task8/numbers.txt", "text": "ff\n10\n0\nA\nz\n101\n00A\n"}],
+    "files": [{"path": "task8/numbers_out.txt", "text": "FF 16 255\n10 2 2\n0 2 0\nA 11 10\nZ 36 35\n101 2 5\nA 11 10\n"}],
+    "cleanup": ["task8/numbers_out.txt"]
+  },
+  {
+    "id": "task8-bad",
+    "exe": "task8/task8.exe",
+    "args": "task8/bad.txt task8/bad_out.txt",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "плохая лексема\n",
+    "prepare": [{"path": "task8/bad.txt", "text": "*\n"}],
+    "cleanup": ["task8/bad_out.txt"]
+  },
+  {
+    "id": "task8-overflow",
+    "exe": "task8/task8.exe",
+    "args": "task8/big.txt task8/big_out.txt",
+    "exit": 2,
+    "stdout": "",
+    "stderr": "число не помещается\n",
+    "prepare": [{"path": "task8/big.txt", "text": "ZZZZZZZZZZZZZZZZZZZZ\n"}],
+    "cleanup": ["task8/big_out.txt"]
+  },
+  {
+    "id": "task8-usage",
+    "exe": "task8/task8.exe",
+    "args": "",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "нужно: входной_файл выходной_файл\n"
+  },
+  {
+    "id": "task9-swap",
+    "exe": "task9/task9.exe",
+    "args": "1 5",
+    "exit": 0,
+    "stderr": "",
+    "check": "task9"
+  },
+  {
+    "id": "task9-bad-range",
+    "exe": "task9/task9.exe",
+    "args": "5 1",
+    "exit": 1,
+    "stdout": "",
+    "stderr": "нужно: a b, где a <= b\n"
+  },
+  {
+    "id": "task10-example",
+    "exe": "task10/task10.exe",
+    "args": "",
+    "exit": 0,
+    "stderr": "",
+    "stdin": "10\n15\n-20\n3\nStop\n",
+    "stdout": "основание от 2 до 36: числа в этом основании, конец — Stop:\nмаксимальное по модулю: -20\nоснование 9: -22\nоснование 18: -12\nоснование 27: -K\nоснование 36: -K\nсумма: -2\nоснование 9: -2\nоснование 18: -2\nоснование 27: -2\nоснование 36: -2\n"
+  },
+  {
+    "id": "task10-base16",
+    "exe": "task10/task10.exe",
+    "args": "",
+    "exit": 0,
+    "stderr": "",
+    "stdin": "16\nFF\n-A\nStop\n",
+    "stdout": "основание от 2 до 36: числа в этом основании, конец — Stop:\nмаксимальное по модулю: 255\nоснование 9: 313\nоснование 18: E3\nоснование 27: 9C\nоснование 36: 73\nсумма: 245\nоснование 9: 302\nоснование 18: DB\nоснование 27: 92\nоснование 36: 6T\n"
+  },
+  {
+    "id": "task10-bad-base",
+    "exe": "task10/task10.exe",
+    "args": "",
+    "exit": 1,
+    "stdin": "1\n",
+    "stdout": "основание от 2 до 36: ",
+    "stderr": "основание должно быть от 2 до 36\n"
+  },
+  {
+    "id": "task10-stop-only",
+    "exe": "task10/task10.exe",
+    "args": "",
+    "exit": 1,
+    "stdin": "10\nStop\n",
+    "stdout": "основание от 2 до 36: числа в этом основании, конец — Stop:\n",
+    "stderr": "чисел не было\n"
+  },
+  {
+    "id": "task10-lowercase",
+    "exe": "task10/task10.exe",
+    "args": "",
+    "exit": 1,
+    "stdin": "16\nff\nStop\n",
+    "stdout": "основание от 2 до 36: числа в этом основании, конец — Stop:\n",
+    "stderr": "плохое число: буквы должны быть прописными\n"
+  }
+]

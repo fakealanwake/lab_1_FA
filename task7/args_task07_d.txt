@@ -1,0 +1,1 @@
+/a task7/one.txt task7/one_out.txt
