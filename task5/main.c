@@ -75,7 +75,7 @@ int main(int argc, char **argv) {
 
     read_stdin_args(&argc, &argv);
     if (argc != 3 || read_double(argv[1], &eps) != OK || !(eps > 0.0) || read_double(argv[2], &x) != OK) {
-        fprintf(stderr, "нужно: эпсилон и x\n");
+        printf( "нужно: эпсилон и x\n");
         return 1;
     }
 

@@ -48,33 +48,76 @@ Status swap_min_max(int *array, const int length) {
 
 // ---------------------------------------------
 
+// compare_int задаёт порядок для qsort: по возрастанию
+static int compare_int(const void *left, const void *right) {
+    int first = *(const int *)left;
+    int second = *(const int *)right;
+
+    if (first < second) {
+        return -1;
+    }
+    if (first > second) {
+        return 1;
+    }
+    return 0;
+}
+
+// lower_bound возвращает индекс первого элемента, который не меньше target
+static int lower_bound(const int *array, const int length, const int target) {
+    int left = 0;
+    int right = length;
+
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+        if (array[mid] < target) {
+            left = mid + 1;
+        } else {
+            right = mid;
+        }
+    }
+    return left;
+}
+
+// abs_diff считает модуль разности без переполнения int
+static long long abs_diff(const int left, const int right) {
+    long long diff = (long long)left - (long long)right;
+    if (diff < 0) {
+        diff = -diff;
+    }
+    return diff;
+}
+
 // nearest_sum строит массив C: C[i] = A[i] + ближайший к A[i] элемент из B.
-// Если ближайших несколько, берётся любой из них — здесь первый найденный.
+// B копируется и сортируется, ближайший ищется двоичным поиском.
+// Если ближайших несколько, берётся любой из них.
 Status nearest_sum(const int *a, const int a_len, const int *b, const int b_len, int *c) {
+    int *sorted;
     int i;
 
     if (a == NULL || b == NULL || c == NULL || a_len <= 0 || b_len <= 0) {
         return BAD_INPUT;
     }
+    sorted = (int *)malloc((size_t)b_len * sizeof(int));
+    if (sorted == NULL) {
+        return NO_MEMORY;
+    }
+    for (i = 0; i < b_len; i++) {
+        sorted[i] = b[i];
+    }
+    qsort(sorted, (size_t)b_len, sizeof(int), compare_int);
     for (i = 0; i < a_len; i++) {
-        int j;
-        int best = b[0];
-        long long best_dist = (long long)a[i] - (long long)b[0];
-        if (best_dist < 0) {
-            best_dist = -best_dist;
-        }
-        for (j = 1; j < b_len; j++) {
-            long long dist = (long long)a[i] - (long long)b[j];
-            if (dist < 0) {
-                dist = -dist;
-            }
-            // строгое < оставляет первый из равных по расстоянию элементов
-            if (dist < best_dist) {
-                best_dist = dist;
-                best = b[j];
+        int pos = lower_bound(sorted, b_len, a[i]);
+        int best = sorted[pos < b_len ? pos : b_len - 1];
+        long long best_dist = abs_diff(a[i], best);
+
+        if (pos > 0) {
+            long long left_dist = abs_diff(a[i], sorted[pos - 1]);
+            if (left_dist <= best_dist) {
+                best = sorted[pos - 1];
             }
         }
         c[i] = a[i] + best;
     }
+    free(sorted);
     return OK;
 }

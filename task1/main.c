@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 static void print_usage(void) {
-    fprintf(stderr, "нужно: число и флаг -h -p -s -e -a -f\n");
+    printf( "нужно: число и флаг -h -p -s -e -a -f\n");
 }
 
 // read_stdin_args читает параметры одной строкой из stdin, если в командной строке их нет и ввод идёт из файла.
@@ -165,18 +165,18 @@ int main(int argc, char **argv) {
             break;
     }
     default:
-        fprintf(stderr, "неизвестный флаг\n");
+        printf( "неизвестный флаг\n");
         return 1;
     }
 
     // общий разбор статуса: расчёт не влез в тип или число не подходит этому флагу
     if (code == TOO_BIG) {
-        fprintf(stderr, "число не помещается\n");
+        printf( "число не помещается\n");
         return 2;
     }
 
     if (code != OK) {
-        fprintf(stderr, "для этого флага число не подходит\n");
+        printf( "для этого флага число не подходит\n");
         return 1;
     }
     return 0;

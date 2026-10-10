@@ -42,7 +42,7 @@ int main(int argc, char **argv) {
 
     read_stdin_args(&argc, &argv);
     if (argc < 2 || read_flag(argv[1], &flag) != OK) {
-        fprintf(stderr, "нужно: -q эпсилон a b c | -m число1 число2 | -t эпсилон a b c\n");
+        printf( "нужно: -q эпсилон a b c | -m число1 число2 | -t эпсилон a b c\n");
         return 1;
     }
     /** первый параметр (вещественное число) задаёт точность сравнения 
@@ -65,12 +65,12 @@ int main(int argc, char **argv) {
         int index;
         if (argc != 6 || read_double(argv[2], &eps) || read_double(argv[3], &a) ||
             read_double(argv[4], &b) || read_double(argv[5], &c)) {
-            fprintf(stderr, "для -q нужны эпсилон и три коэффициента\n");
+            printf( "для -q нужны эпсилон и три коэффициента\n");
             return 1;
         }
         code = solve_all_orders(eps, a, b, c, list, &count);
         if (code != OK) {
-            fprintf(stderr, "некорректные данные\n");
+            printf( "некорректные данные\n");
             return 1;
         }
         for (index = 0; index < count; index++) {
@@ -96,12 +96,12 @@ int main(int argc, char **argv) {
         long long left, right;
         int answer = 0;
         if (argc != 4 || read_long(argv[2], &left) || read_long(argv[3], &right)) {
-            fprintf(stderr, "для -m нужны два целых числа\n");
+            printf( "для -m нужны два целых числа\n");
             return 1;
         }
         code = is_multiple(left, right, &answer);
         if (code != OK) {
-            fprintf(stderr, "числа должны быть ненулевыми\n");
+            printf( "числа должны быть ненулевыми\n");
             return 1;
         }
         printf("%lld %sкратно %lld\n", left, answer ? "" : "не ", right);
@@ -115,19 +115,19 @@ int main(int argc, char **argv) {
         int answer = 0;
         if (argc != 6 || read_double(argv[2], &eps) || read_double(argv[3], &a) ||
             read_double(argv[4], &b) || read_double(argv[5], &c)) {
-            fprintf(stderr, "для -t нужны эпсилон и три стороны\n");
+            printf( "для -t нужны эпсилон и три стороны\n");
             return 1;
         }
         
         code = is_right_triangle(eps, a, b, c, &answer);
         if (code != OK) {
-            fprintf(stderr, "некорректные данные\n");
+            printf( "некорректные данные\n");
             return 1;
         }
         printf("%s\n", answer ? "прямоугольный" : "не прямоугольный");
         return 0;
     }
 
-    fprintf(stderr, "флаг должен быть q, m или t\n");
+    printf( "флаг должен быть q, m или t\n");
     return 1;
 }

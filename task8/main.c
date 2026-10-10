@@ -95,17 +95,17 @@ int main(int argc, char **argv) {
 
     read_stdin_args(&argc, &argv);
     if (argc != 3) {
-        fprintf(stderr, "нужно: входной_файл выходной_файл\n");
+        printf( "нужно: входной_файл выходной_файл\n");
         return 1;
     }
     input = fopen(argv[1], "rb");
     if (input == NULL) {
-        fprintf(stderr, "не открылся входной файл\n");
+        printf( "не открылся входной файл\n");
         return 1;
     }
     output = fopen(argv[2], "wb");
     if (output == NULL) {
-        fprintf(stderr, "не открылся выходной файл\n");
+        printf( "не открылся выходной файл\n");
         fclose(input);
         return 1;
     }
@@ -116,7 +116,7 @@ int main(int argc, char **argv) {
         unsigned long long value = 0;
         Status code = read_token(input, &token);
         if (code != OK) {
-            fprintf(stderr, "ошибка чтения\n");
+            printf( "ошибка чтения\n");
             free(token);
             fclose(input);
             fclose(output);
@@ -129,19 +129,19 @@ int main(int argc, char **argv) {
         free(token);
         token = NULL;
         if (code == TOO_BIG) {
-            fprintf(stderr, "число не помещается\n");
+            printf( "число не помещается\n");
             fclose(input);
             fclose(output);
             return 2;
         }
         if (code != OK) {
-            fprintf(stderr, "плохая лексема\n");
+            printf( "плохая лексема\n");
             fclose(input);
             fclose(output);
             return 1;
         }
         if (fprintf(output, "%s %d %llu\n", shown, base, value) < 0) {
-            fprintf(stderr, "ошибка записи\n");
+            printf( "ошибка записи\n");
             fclose(input);
             fclose(output);
             return 1;

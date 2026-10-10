@@ -84,20 +84,20 @@ int main(int argc, char **argv) {
 
     read_stdin_args(&argc, &argv);
     if (argc != 3 || read_int(argv[1], &left) != OK || read_int(argv[2], &right) != OK || left > right) {
-        fprintf(stderr, "нужно: a b, где a <= b\n");
+        printf( "нужно: a b, где a <= b\n");
         return 1;
     }
 
     srand((unsigned)time(NULL));
     code = fill_array(fixed, ARRAY_SIZE, left, right);
     if (code != OK) {
-        fprintf(stderr, "не удалось заполнить массив\n");
+        printf( "не удалось заполнить массив\n");
         return 1;
     }
     print_array("до: ", fixed, ARRAY_SIZE);
     code = swap_min_max(fixed, ARRAY_SIZE);
     if (code != OK) {
-        fprintf(stderr, "не удалось поменять минимум и максимум\n");
+        printf( "не удалось поменять минимум и максимум\n");
         return 1;
     }
     print_array("после: ", fixed, ARRAY_SIZE);
@@ -109,7 +109,7 @@ int main(int argc, char **argv) {
     b = (int *)malloc((size_t)b_len * sizeof(int));
     c = (int *)malloc((size_t)a_len * sizeof(int));
     if (a == NULL || b == NULL || c == NULL) {
-        fprintf(stderr, "нет памяти\n");
+        printf( "нет памяти\n");
         free(a);
         free(b);
         free(c);
@@ -117,7 +117,7 @@ int main(int argc, char **argv) {
     }
     if (fill_array(a, a_len, -1000, 1000) != OK || fill_array(b, b_len, -1000, 1000) != OK ||
         nearest_sum(a, a_len, b, b_len, c) != OK) {
-        fprintf(stderr, "не удалось собрать массив C\n");
+        printf( "не удалось собрать массив C\n");
         free(a);
         free(b);
         free(c);

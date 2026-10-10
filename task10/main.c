@@ -54,12 +54,12 @@ int main(void) {
 
     printf("основание от 2 до 36: ");
     if (!read_line(line, (int)sizeof(line))) {
-        fprintf(stderr, "не удалось прочитать основание\n");
+        printf( "не удалось прочитать основание\n");
         return 1;
     }
     trim_end(line);
     if (read_base(line, &base) != OK) {
-        fprintf(stderr, "основание должно быть от 2 до 36\n");
+        printf( "основание должно быть от 2 до 36\n");
         return 1;
     }
 
@@ -68,7 +68,7 @@ int main(void) {
         long long number = 0;
         Status code;
         if (!read_line(line, (int)sizeof(line))) {
-            fprintf(stderr, "ввод кончился без Stop\n");
+            printf( "ввод кончился без Stop\n");
             return 1;
         }
         trim_end(line);
@@ -78,11 +78,11 @@ int main(void) {
         }
         code = read_number(line, base, &number);
         if (code == TOO_BIG) {
-            fprintf(stderr, "число не помещается\n");
+            printf( "число не помещается\n");
             return 2;
         }
         if (code != OK) {
-            fprintf(stderr, "плохое число: буквы должны быть прописными\n");
+            printf( "плохое число: буквы должны быть прописными\n");
             return 1;
         }
         if (!has_number) {
@@ -96,7 +96,7 @@ int main(void) {
                 max_value = number;
             }
             if (add_numbers(sum, number, &next) != OK) {
-                fprintf(stderr, "сумма не помещается\n");
+                printf( "сумма не помещается\n");
                 return 2;
             }
             sum = next;
@@ -104,7 +104,7 @@ int main(void) {
     }
 
     if (!has_number) {
-        fprintf(stderr, "чисел не было\n");
+        printf( "чисел не было\n");
         return 1;
     }
     print_number("максимальное по модулю", max_value);

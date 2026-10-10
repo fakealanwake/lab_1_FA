@@ -58,11 +58,11 @@ static Status read_all(FILE *file, char **text, size_t *length) {
 static int write_result(const char *path, const char *text, const size_t length) {
     FILE *file = fopen(path, "wb");
     if (file == NULL) {
-        fprintf(stderr, "не открылся выходной файл\n");
+        printf( "не открылся выходной файл\n");
         return 0;
     }
     if (length > 0 && fwrite(text, 1, length, file) != length) {
-        fprintf(stderr, "ошибка записи\n");
+        printf( "ошибка записи\n");
         fclose(file);
         return 0;
     }
@@ -79,20 +79,20 @@ static int load_tokens(const char *path, char ***tokens, int *count) {
 
     file = fopen(path, "rb");
     if (file == NULL) {
-        fprintf(stderr, "не открылся файл %s\n", path);
+        printf( "не открылся файл %s\n", path);
         return 0;
     }
     code = read_all(file, &text, &length);
     fclose(file);
     if (code != OK) {
-        fprintf(stderr, "ошибка чтения\n");
+        printf( "ошибка чтения\n");
         free(text);
         return 0;
     }
     code = split_tokens(text, length, tokens, count);
     free(text);
     if (code != OK) {
-        fprintf(stderr, "нет памяти\n");
+        printf( "нет памяти\n");
         return 0;
     }
     return 1;
@@ -146,13 +146,13 @@ int main(int argc, char **argv) {
 
     read_stdin_args(&argc, &argv);
     if (argc < 2 || read_flag(argv[1], &flag) != OK) {
-        fprintf(stderr, "нужно: -r файл1 файл2 выход | -a вход выход\n");
+        printf( "нужно: -r файл1 файл2 выход | -a вход выход\n");
         return 1;
     }
 
     if (flag == 'r') {
         if (argc != 5) {
-            fprintf(stderr, "для -r нужны два входных файла и выходной\n");
+            printf( "для -r нужны два входных файла и выходной\n");
             return 1;
         }
         if (!load_tokens(argv[2], &left, &left_count) || !load_tokens(argv[3], &right, &right_count)) {
@@ -161,7 +161,7 @@ int main(int argc, char **argv) {
             return 1;
         }
         if (merge_tokens(left, left_count, right, right_count, &result, &result_count) != OK) {
-            fprintf(stderr, "нет памяти\n");
+            printf( "нет памяти\n");
             free_tokens(left, left_count);
             free_tokens(right, right_count);
             return 1;
@@ -169,7 +169,7 @@ int main(int argc, char **argv) {
         free_tokens(left, left_count);
         free_tokens(right, right_count);
         if (join_tokens(result, result_count, &text, &length) != OK) {
-            fprintf(stderr, "нет памяти\n");
+            printf( "нет памяти\n");
             free_tokens(result, result_count);
             return 1;
         }
@@ -180,20 +180,20 @@ int main(int argc, char **argv) {
     }
 
     if (argc != 4) {
-        fprintf(stderr, "для -a нужны входной и выходной файлы\n");
+        printf( "для -a нужны входной и выходной файлы\n");
         return 1;
     }
     if (!load_tokens(argv[2], &left, &left_count)) {
         return 1;
     }
     if (convert_tokens(left, left_count, &result, &result_count) != OK) {
-        fprintf(stderr, "нет памяти\n");
+        printf( "нет памяти\n");
         free_tokens(left, left_count);
         return 1;
     }
     free_tokens(left, left_count);
     if (join_tokens(result, result_count, &text, &length) != OK) {
-        fprintf(stderr, "нет памяти\n");
+        printf( "нет памяти\n");
         free_tokens(result, result_count);
         return 1;
     }

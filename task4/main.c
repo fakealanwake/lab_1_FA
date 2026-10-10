@@ -110,7 +110,7 @@ int main(int argc, char **argv) {
 
     read_stdin_args(&argc, &argv);
     if (argc < 2 || read_action(argv[1], &action, &own_name) != OK || argc != (own_name ? 4 : 3)) {
-        fprintf(stderr, "нужно: <-d|-i|-s|-a> файл или <-nd|-ni|-ns|-na> вход выход\n");
+        printf( "нужно: <-d|-i|-s|-a> файл или <-nd|-ni|-ns|-na> вход выход\n");
         return 1;
     }
     // с буквой n в флаге выходной путь — третий аргумент, иначе к имени входа добавляется out_
@@ -118,7 +118,7 @@ int main(int argc, char **argv) {
         output_path = argv[3];
     } else {
         if (make_output_name(argv[2], &generated) != OK) {
-            fprintf(stderr, "плохое имя файла\n");
+            printf( "плохое имя файла\n");
             return 1;
         }
         output_path = generated;
@@ -126,14 +126,14 @@ int main(int argc, char **argv) {
 
     input = fopen(argv[2], "rb");
     if (input == NULL) {
-        fprintf(stderr, "не открылся входной файл\n");
+        printf( "не открылся входной файл\n");
         free(generated);
         return 1;
     }
     code = read_file(input, &source, &length);
     fclose(input);
     if (code != OK) {
-        fprintf(stderr, "ошибка чтения\n");
+        printf( "ошибка чтения\n");
         free(generated);
         free(source);
         return 1;
@@ -142,20 +142,20 @@ int main(int argc, char **argv) {
     code = change_text(source, length, action, &changed, &changed_length);
     free(source);
     if (code != OK) {
-        fprintf(stderr, "не хватает памяти\n");
+        printf( "не хватает памяти\n");
         free(generated);
         return 1;
     }
 
     output = fopen(output_path, "wb");
     if (output == NULL) {
-        fprintf(stderr, "не открылся выходной файл\n");
+        printf( "не открылся выходной файл\n");
         free(changed);
         free(generated);
         return 1;
     }
     if (changed_length > 0 && fwrite(changed, 1, changed_length, output) != changed_length) {
-        fprintf(stderr, "ошибка записи\n");
+        printf( "ошибка записи\n");
         fclose(output);
         free(changed);
         free(generated);

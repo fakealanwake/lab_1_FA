@@ -57,7 +57,7 @@ int main(int argc, char **argv) {
 
     read_stdin_args(&argc, &argv);
     if (argc != 2 || read_double(argv[1], &eps) != OK || !(eps > 0.0) || !isfinite(eps)) {
-        fprintf(stderr, "нужно: положительный эпсилон\n");
+        printf( "нужно: положительный эпсилон\n");
         return 1;
     }
 

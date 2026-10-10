@@ -36,8 +36,8 @@
     "exe": "task1/task1.exe",
     "args": "0 -h",
     "exit": 1,
-    "stdout": "",
-    "stderr": "для этого флага число не подходит\n"
+    "stdout": "для этого флага число не подходит\n",
+    "stderr": ""
   },
   {
     "id": "task1-p-prime",
@@ -116,16 +116,16 @@
     "exe": "task1/task1.exe",
     "args": "0 -e",
     "exit": 1,
-    "stdout": "",
-    "stderr": "для этого флага число не подходит\n"
+    "stdout": "для этого флага число не подходит\n",
+    "stderr": ""
   },
   {
     "id": "task1-e-too-big",
     "exe": "task1/task1.exe",
     "args": "11 -e",
     "exit": 1,
-    "stdout": "",
-    "stderr": "для этого флага число не подходит\n"
+    "stdout": "для этого флага число не подходит\n",
+    "stderr": ""
   },
   {
     "id": "task1-a",
@@ -164,24 +164,24 @@
     "exe": "task1/task1.exe",
     "args": "21 -f",
     "exit": 2,
-    "stdout": "",
-    "stderr": "число не помещается\n"
+    "stdout": "число не помещается\n",
+    "stderr": ""
   },
   {
     "id": "task1-f-negative",
     "exe": "task1/task1.exe",
     "args": "-1 -f",
     "exit": 1,
-    "stdout": "",
-    "stderr": "для этого флага число не подходит\n"
+    "stdout": "для этого флага число не подходит\n",
+    "stderr": ""
   },
   {
     "id": "task1-usage",
     "exe": "task1/task1.exe",
     "args": "",
     "exit": 1,
-    "stdout": "",
-    "stderr": "нужно: число и флаг -h -p -s -e -a -f\n"
+    "stdout": "нужно: число и флаг -h -p -s -e -a -f\n",
+    "stderr": ""
   },
   {
     "id": "task2-eps",
@@ -214,16 +214,16 @@
     "exe": "task2/task2.exe",
     "args": "",
     "exit": 1,
-    "stdout": "",
-    "stderr": "нужно: положительный эпсилон\n"
+    "stdout": "нужно: положительный эпсилон\n",
+    "stderr": ""
   },
   {
     "id": "task2-negative",
     "exe": "task2/task2.exe",
     "args": "-0.001",
     "exit": 1,
-    "stdout": "",
-    "stderr": "нужно: положительный эпсилон\n"
+    "stdout": "нужно: положительный эпсилон\n",
+    "stderr": ""
   },
   {
     "id": "task3-q-two",
@@ -286,8 +286,8 @@
     "exe": "task3/task3.exe",
     "args": "-m 0 5",
     "exit": 1,
-    "stdout": "",
-    "stderr": "числа должны быть ненулевыми\n"
+    "stdout": "числа должны быть ненулевыми\n",
+    "stderr": ""
   },
   {
     "id": "task3-t-yes",
@@ -318,8 +318,8 @@
     "exe": "task3/task3.exe",
     "args": "-x",
     "exit": 1,
-    "stdout": "",
-    "stderr": "флаг должен быть q, m или t\n"
+    "stdout": "флаг должен быть q, m или t\n",
+    "stderr": ""
   },
   {
     "id": "task4-d",
@@ -458,8 +458,8 @@
     "exe": "task4/task4.exe",
     "args": "-d task4/no-such.txt",
     "exit": 1,
-    "stdout": "",
-    "stderr": "не открылся входной файл\n"
+    "stdout": "не открылся входной файл\n",
+    "stderr": ""
   },
   {
     "id": "task5-series",
@@ -500,8 +500,8 @@
     "exe": "task5/task5.exe",
     "args": "",
     "exit": 1,
-    "stdout": "",
-    "stderr": "нужно: эпсилон и x\n"
+    "stdout": "нужно: эпсилон и x\n",
+    "stderr": ""
   },
   {
     "id": "task6-demo",
@@ -566,16 +566,16 @@
     "exe": "task7/task7.exe",
     "args": "",
     "exit": 1,
-    "stdout": "",
-    "stderr": "нужно: -r файл1 файл2 выход | -a вход выход\n"
+    "stdout": "нужно: -r файл1 файл2 выход | -a вход выход\n",
+    "stderr": ""
   },
   {
     "id": "task7-r-argc",
     "exe": "task7/task7.exe",
     "args": "-r task7/left.txt",
     "exit": 1,
-    "stdout": "",
-    "stderr": "для -r нужны два входных файла и выходной\n"
+    "stdout": "для -r нужны два входных файла и выходной\n",
+    "stderr": ""
   },
   {
     "id": "task8-numbers",
@@ -593,8 +593,8 @@
     "exe": "task8/task8.exe",
     "args": "task8/bad.txt task8/bad_out.txt",
     "exit": 1,
-    "stdout": "",
-    "stderr": "плохая лексема\n",
+    "stdout": "плохая лексема\n",
+    "stderr": "",
     "prepare": [{"path": "task8/bad.txt", "text": "*\n"}],
     "cleanup": ["task8/bad_out.txt"]
   },
@@ -603,8 +603,8 @@
     "exe": "task8/task8.exe",
     "args": "task8/big.txt task8/big_out.txt",
     "exit": 2,
-    "stdout": "",
-    "stderr": "число не помещается\n",
+    "stdout": "число не помещается\n",
+    "stderr": "",
     "prepare": [{"path": "task8/big.txt", "text": "ZZZZZZZZZZZZZZZZZZZZ\n"}],
     "cleanup": ["task8/big_out.txt"]
   },
@@ -613,8 +613,8 @@
     "exe": "task8/task8.exe",
     "args": "",
     "exit": 1,
-    "stdout": "",
-    "stderr": "нужно: входной_файл выходной_файл\n"
+    "stdout": "нужно: входной_файл выходной_файл\n",
+    "stderr": ""
   },
   {
     "id": "task9-swap",
@@ -629,8 +629,8 @@
     "exe": "task9/task9.exe",
     "args": "5 1",
     "exit": 1,
-    "stdout": "",
-    "stderr": "нужно: a b, где a <= b\n"
+    "stdout": "нужно: a b, где a <= b\n",
+    "stderr": ""
   },
   {
     "id": "task10-example",
@@ -656,8 +656,8 @@
     "args": "",
     "exit": 1,
     "stdin": "1\n",
-    "stdout": "основание от 2 до 36: ",
-    "stderr": "основание должно быть от 2 до 36\n"
+    "stdout": "основание от 2 до 36: основание должно быть от 2 до 36\n",
+    "stderr": ""
   },
   {
     "id": "task10-stop-only",
@@ -665,8 +665,8 @@
     "args": "",
     "exit": 1,
     "stdin": "10\nStop\n",
-    "stdout": "основание от 2 до 36: числа в этом основании, конец — Stop:\n",
-    "stderr": "чисел не было\n"
+    "stdout": "основание от 2 до 36: числа в этом основании, конец — Stop:\nчисел не было\n",
+    "stderr": ""
   },
   {
     "id": "task10-lowercase",
@@ -674,7 +674,7 @@
     "args": "",
     "exit": 1,
     "stdin": "16\nff\nStop\n",
-    "stdout": "основание от 2 до 36: числа в этом основании, конец — Stop:\n",
-    "stderr": "плохое число: буквы должны быть прописными\n"
+    "stdout": "основание от 2 до 36: числа в этом основании, конец — Stop:\nплохое число: буквы должны быть прописными\n",
+    "stderr": ""
   }
 ]
