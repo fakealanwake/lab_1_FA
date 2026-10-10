@@ -454,6 +454,17 @@
     "cleanup": ["task4/nested/out_a.txt"]
   },
   {
+    "id": "task4-same-file",
+    "exe": "task4/task4.exe",
+    "args": "-nd task4/same.txt task4/same.txt",
+    "exit": 1,
+    "stdout": "вход и выход совпадают\n",
+    "stderr": "",
+    "prepare": [{"path": "task4/same.txt", "text": "abcd123\n"}],
+    "files": [{"path": "task4/same.txt", "text": "abcd123\n"}],
+    "cleanup": ["task4/same.txt"]
+  },
+  {
     "id": "task4-missing",
     "exe": "task4/task4.exe",
     "args": "-d task4/no-such.txt",
@@ -607,6 +618,17 @@
     "stderr": "",
     "prepare": [{"path": "task8/big.txt", "text": "ZZZZZZZZZZZZZZZZZZZZ\n"}],
     "cleanup": ["task8/big_out.txt"]
+  },
+  {
+    "id": "task8-same-file",
+    "exe": "task8/task8.exe",
+    "args": "task8/same.txt task8/same.txt",
+    "exit": 1,
+    "stdout": "вход и выход совпадают\n",
+    "stderr": "",
+    "prepare": [{"path": "task8/same.txt", "text": "ff\n10\n"}],
+    "files": [{"path": "task8/same.txt", "text": "ff\n10\n"}],
+    "cleanup": ["task8/same.txt"]
   },
   {
     "id": "task8-usage",

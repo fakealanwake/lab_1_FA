@@ -94,6 +94,34 @@ static void read_stdin_args(int *argc, char ***argv) {
     *argv = stored;
 }
 
+// same_file считает пути одним файлом, даже если слэши и регистр букв различаются.
+static int same_file(const char *left, const char *right) {
+    char first[4096];
+    char second[4096];
+    size_t index;
+
+    if (left == NULL || right == NULL) {
+        return 0;
+    }
+    if (_fullpath(first, left, sizeof(first)) == NULL || _fullpath(second, right, sizeof(second)) == NULL) {
+        return 0;
+    }
+    for (index = 0; first[index] != '\0' && second[index] != '\0'; index++) {
+        char one = first[index];
+        char two = second[index];
+        if (one >= 'A' && one <= 'Z') {
+            one = (char)(one - 'A' + 'a');
+        }
+        if (two >= 'A' && two <= 'Z') {
+            two = (char)(two - 'A' + 'a');
+        }
+        if (one != two) {
+            return 0;
+        }
+    }
+    return first[index] == '\0' && second[index] == '\0';
+}
+
 // main проверяет аргументы, читает вход, отдаёт текст в change_text и пишет результат в файл.
 int main(int argc, char **argv) {
     char action = 0;
@@ -122,6 +150,11 @@ int main(int argc, char **argv) {
             return 1;
         }
         output_path = generated;
+    }
+    if (same_file(argv[2], output_path)) {
+        printf("вход и выход совпадают\n");
+        free(generated);
+        return 1;
     }
 
     input = fopen(argv[2], "rb");

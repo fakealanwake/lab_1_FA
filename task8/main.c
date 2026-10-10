@@ -87,6 +87,34 @@ static void read_stdin_args(int *argc, char ***argv) {
     *argv = stored;
 }
 
+// same_file считает пути одним файлом, даже если слэши и регистр букв различаются.
+static int same_file(const char *left, const char *right) {
+    char first[4096];
+    char second[4096];
+    size_t index;
+
+    if (left == NULL || right == NULL) {
+        return 0;
+    }
+    if (_fullpath(first, left, sizeof(first)) == NULL || _fullpath(second, right, sizeof(second)) == NULL) {
+        return 0;
+    }
+    for (index = 0; first[index] != '\0' && second[index] != '\0'; index++) {
+        char one = first[index];
+        char two = second[index];
+        if (one >= 'A' && one <= 'Z') {
+            one = (char)(one - 'A' + 'a');
+        }
+        if (two >= 'A' && two <= 'Z') {
+            two = (char)(two - 'A' + 'a');
+        }
+        if (one != two) {
+            return 0;
+        }
+    }
+    return first[index] == '\0' && second[index] == '\0';
+}
+
 // main для каждого числа из входного файла пишет строку: запись без нулей, основание, значение в системе 10
 int main(int argc, char **argv) {
     FILE *input;
@@ -96,6 +124,10 @@ int main(int argc, char **argv) {
     read_stdin_args(&argc, &argv);
     if (argc != 3) {
         printf( "нужно: входной_файл выходной_файл\n");
+        return 1;
+    }
+    if (same_file(argv[1], argv[2])) {
+        printf("вход и выход совпадают\n");
         return 1;
     }
     input = fopen(argv[1], "rb");
